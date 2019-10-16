@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import Form from "./components/Form";
+import Data from "./components/Data.js";
+import Issue from "./components/Issue";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = { data: Data.getAll() };
+
+  componentWillMount() {
+    Data.on("change", () => {
+      this.setState({
+        data: Data.getAll()
+      });
+    });
+  }
+
+  render() {
+    const { data } = this.state;
+
+    return (
+      <div className="app">
+        <h3>
+          IssueTracker
+          <span style={{ color: "#807f7d", fontSize: "15px" }}>
+            by Bayaz
+          </span>{" "}
+        </h3>
+        <div className="row">
+          <div className="container jumbotron">
+            <Form data={data} />
+          </div>
+        </div>
+
+        <div>
+          <Issue data={data} />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;

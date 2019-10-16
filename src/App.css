@@ -1,22 +1,17 @@
-.App {
-  text-align: center;
+.app {
+  background-color: gainsboro;
 }
 
-.App-logo {
-  height: 40vmin;
+.issue {
+  border: 2px 25% solid gray;
+  border-radius: 40px;
+  padding: 20px;
+  width: 40%;
+  margin: 20px auto;
+  background-color: beige;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
+.issue button {
+  margin-right: 5px;
+  border-radius: 25px;
 }
